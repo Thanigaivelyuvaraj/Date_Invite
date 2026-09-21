@@ -766,11 +766,171 @@
   .emoji { font-size:30px; display:block; margin-bottom:6px; }
   .vibe small { font-weight:600; color:var(--text); font-family:"Poppins",sans-serif; }
 
+  /* Date activity categories */
+  .date-categories .vibe {
+    min-height:118px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:4px;
+  }
+
+  /* Seven date categories: keep the final card centered on larger screens. */
+  @media (min-width: 901px) {
+    .date-categories .vibe:last-child {
+      grid-column: 2;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .date-categories {
+      grid-template-columns:repeat(2,minmax(0,1fr));
+    }
+  }
+
+  .date-categories .emoji {
+    font-size:34px;
+    margin-bottom:4px;
+    transition:transform .25s ease;
+  }
+
+  .date-categories .vibe:hover .emoji,
+  .date-categories .vibe.selected .emoji {
+    transform:scale(1.12) translateY(-2px);
+  }
+
+  .date-categories .vibe.selected {
+    background:linear-gradient(145deg,
+      color-mix(in srgb, var(--accent) 10%, white),
+      color-mix(in srgb, var(--accent2) 10%, white));
+  }
+
+  /* =========================================================
+     DYNAMIC DATE CATEGORY DETAILS
+     ========================================================= */
+  .category-details {
+    margin-top:18px;
+    padding:18px;
+    border:1px solid var(--border);
+    border-radius:20px;
+    background:rgba(255,255,255,.62);
+    box-shadow:0 12px 28px color-mix(in srgb, var(--accent) 10%, transparent);
+    text-align:left;
+    animation:categoryIn .35s ease;
+  }
+
+  .category-details.hidden {
+    display:none;
+  }
+
+  .category-details h3 {
+    margin:0 0 4px;
+    color:var(--accent);
+    font-family:"Playfair Display",Georgia,serif;
+    font-size:22px;
+  }
+
+  .category-details .detail-subtitle {
+    margin:0 0 15px;
+    color:#8a6f78;
+    font-size:12px;
+  }
+
+  .detail-field {
+    margin:12px 0;
+  }
+
+  .detail-field label {
+    margin-left:2px;
+    font-size:13px;
+  }
+
+  .detail-input,
+  .detail-select {
+    width:100%;
+    min-height:48px;
+    padding:12px 14px;
+    border:1.5px solid var(--border);
+    border-radius:13px;
+    background:#fffdfa;
+    color:var(--text);
+    font:inherit;
+    outline:none;
+  }
+
+  .detail-input:focus,
+  .detail-select:focus {
+    border-color:var(--accent);
+    box-shadow:0 0 0 4px color-mix(in srgb,var(--accent) 11%,transparent);
+  }
+
+  .detail-options {
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:8px;
+    margin-top:8px;
+  }
+
+  .detail-option {
+    border:1px solid var(--border);
+    border-radius:12px;
+    padding:11px 8px;
+    background:rgba(255,255,255,.75);
+    color:var(--text);
+    cursor:pointer;
+    font:600 12px "Poppins",sans-serif;
+    transition:.2s ease;
+  }
+
+  .detail-option:hover,
+  .detail-option.selected {
+    transform:translateY(-2px);
+    border-color:var(--accent);
+    background:color-mix(in srgb,var(--accent) 9%,white);
+    box-shadow:0 5px 15px color-mix(in srgb,var(--accent) 12%,transparent);
+  }
+
+  .category-back {
+    width:100%;
+    margin-top:10px;
+    border:0;
+    background:transparent;
+    color:var(--accent);
+    font:600 12px "Poppins",sans-serif;
+    cursor:pointer;
+    padding:7px;
+  }
+
+  @keyframes categoryIn {
+    from { opacity:0; transform:translateY(10px) scale(.98); }
+    to { opacity:1; transform:translateY(0) scale(1); }
+  }
+
+  @media(max-width:600px) {
+    .category-details {
+      padding:15px;
+    }
+
+    .detail-options {
+      grid-template-columns:repeat(2,minmax(0,1fr));
+    }
+  }
+
   .error {
     color:var(--accent);
     min-height:22px;
     margin:10px 0;
     font-size:14px;
+  }
+
+  .summary-details {
+    margin-top:10px;
+    padding-top:10px;
+    border-top:1px dashed var(--border);
+    font-size:13px;
+    line-height:1.75;
+    color:#7a626b;
   }
 
   .summary {
@@ -973,25 +1133,55 @@
     <button class="btn" onclick="nextToVibe()">set the date! 💕</button>
   </section>
 
-  <!-- STEP 2 -->
+  <!-- STEP 2: DATE PLAN -->
   <section class="card hidden" id="step2">
-    <div class="icon">🍽️✨</div>
-    <h1>What's the vibe?</h1>
-    <p class="subtitle">Pick what sounds delicious 😌</p>
+    <div class="icon">💫💕</div>
+    <h1>What's the plan?</h1>
+    <p class="subtitle">Choose the kind of date you'd love 😌</p>
 
-    <div class="vibes">
-      <button class="vibe" onclick="pickVibe(this,'🍕 Pizza')"><span class="emoji">🍕</span><small>Pizza</small></button>
-      <button class="vibe" onclick="pickVibe(this,'🍣 Sushi')"><span class="emoji">🍣</span><small>Sushi</small></button>
-      <button class="vibe" onclick="pickVibe(this,'🍔 Burgers')"><span class="emoji">🍔</span><small>Burgers</small></button>
-      <button class="vibe" onclick="pickVibe(this,'🍝 Pasta')"><span class="emoji">🍝</span><small>Pasta</small></button>
-      <button class="vibe" onclick="pickVibe(this,'🌮 Tacos')"><span class="emoji">🌮</span><small>Tacos</small></button>
-      <button class="vibe" onclick="pickVibe(this,'🍜 Ramen')"><span class="emoji">🍜</span><small>Ramen</small></button>
+    <!-- Main categories -->
+    <div class="vibes date-categories" id="dateCategories">
+      <button class="vibe" type="button" onclick="selectCategory(this,'movies')">
+        <span class="emoji">🎬</span><small>Movies</small>
+      </button>
+
+      <button class="vibe" type="button" onclick="selectCategory(this,'restaurant')">
+        <span class="emoji">🍽️</span><small>Restaurant</small>
+      </button>
+
+      <button class="vibe" type="button" onclick="selectCategory(this,'coffee')">
+        <span class="emoji">☕</span><small>Coffee Shop</small>
+      </button>
+
+      <button class="vibe" type="button" onclick="selectCategory(this,'beach')">
+        <span class="emoji">🏖️</span><small>Beach</small>
+      </button>
+
+      <button class="vibe" type="button" onclick="selectCategory(this,'ride')">
+        <span class="emoji">🚗</span><small>Ride</small>
+      </button>
+
+      <button class="vibe" type="button" onclick="selectCategory(this,'chill')">
+        <span class="emoji">🌿</span><small>Chilling Place</small>
+      </button>
     </div>
 
-    <div class="choice-note" id="choiceNote">Pick the one you'd secretly order twice 😌</div>
+    <!-- Dynamic details appear here -->
+    <div id="categoryDetails" class="category-details hidden"></div>
+
+    <div class="choice-note" id="choiceNote">
+      Pick our little adventure ✨
+    </div>
+
     <div class="error" id="error2"></div>
-    <button class="btn" onclick="showFinal()" style="margin-top:20px">this sounds perfect 💕</button>
-    <button class="btn secondary" onclick="backToDate()">← change the date</button>
+
+    <button class="btn" onclick="showFinal()" style="margin-top:20px">
+      this sounds perfect 💕
+    </button>
+
+    <button class="btn secondary" onclick="backToDate()">
+      ← change the date
+    </button>
   </section>
 
   <!-- FINAL -->
@@ -1148,6 +1338,8 @@
   }
 
   let selectedVibe = "";
+  let selectedCategory = "";
+  let categoryDetails = {};
 
   // ===== RUNAWAY "NO" BUTTON =====
   // ============================================================
@@ -1324,31 +1516,262 @@
     switchStep("step1", "step2");
   }
 
-  function pickVibe(element, vibe) {
-    document.querySelectorAll(".vibe").forEach(v => v.classList.remove("selected"));
+  // ==========================================================
+  // DYNAMIC DATE CATEGORY SELECTION
+  // ==========================================================
+  const categoryConfig = {
+    movies: {
+      title: "🎬 Movie Date",
+      subtitle: "Tell me what we're watching and where 🍿",
+      vibe: "🎬 Movies",
+      fields: `
+        <div class="detail-field">
+          <label>🎥 Movie name</label>
+          <input class="detail-input" data-key="movie" placeholder="Enter movie name">
+        </div>
+
+        <div class="detail-field">
+          <label>🎭 Theatre</label>
+          <input class="detail-input" data-key="theatre" placeholder="PVR, INOX, AGS, etc.">
+        </div>
+      `,
+      note: "A cozy movie, some snacks, and us. 🎬🍿"
+    },
+
+    restaurant: {
+      title: "🍽️ Restaurant Date",
+      subtitle: "Good food + good conversation = perfect 💕",
+      vibe: "🍽️ Restaurant",
+      fields: `
+        <div class="detail-field">
+          <label>📍 Restaurant</label>
+          <input class="detail-input" data-key="restaurant" placeholder="Restaurant name">
+        </div>
+
+        <div class="detail-field">
+          <label>🍜 Cuisine</label>
+          <div class="detail-options">
+            <button type="button" class="detail-option" data-key="cuisine" data-value="🍛 Indian">🍛 Indian</button>
+            <button type="button" class="detail-option" data-key="cuisine" data-value="🍕 Italian">🍕 Italian</button>
+            <button type="button" class="detail-option" data-key="cuisine" data-value="🍣 Japanese">🍣 Japanese</button>
+            <button type="button" class="detail-option" data-key="cuisine" data-value="🍜 Asian">🍜 Asian</button>
+            <button type="button" class="detail-option" data-key="cuisine" data-value="🍔 Fast Food">🍔 Fast Food</button>
+            <button type="button" class="detail-option" data-key="cuisine" data-value="✨ Anything">✨ Anything</button>
+          </div>
+        </div>
+      `,
+      note: "Good food, good conversation, and even better company. 🍽️💕"
+    },
+
+    coffee: {
+      title: "☕ Coffee Date",
+      subtitle: "Coffee, conversations and no rush 🥹",
+      vibe: "☕ Coffee Shop",
+      fields: `
+        <div class="detail-field">
+          <label>☕ Coffee shop</label>
+          <input class="detail-input" data-key="coffeeShop" placeholder="Coffee shop name">
+        </div>
+
+        <div class="detail-field">
+          <label>🧁 What should we have?</label>
+          <div class="detail-options">
+            <button type="button" class="detail-option" data-key="order" data-value="☕ Coffee">☕ Coffee</button>
+            <button type="button" class="detail-option" data-key="order" data-value="🧋 Bubble Tea">🧋 Bubble Tea</button>
+            <button type="button" class="detail-option" data-key="order" data-value="🍰 Cake">🍰 Cake</button>
+            <button type="button" class="detail-option" data-key="order" data-value="🥐 Pastry">🥐 Pastry</button>
+            <button type="button" class="detail-option" data-key="order" data-value="🍨 Dessert">🍨 Dessert</button>
+            <button type="button" class="detail-option" data-key="order" data-value="✨ Surprise me">✨ Surprise me</button>
+          </div>
+        </div>
+      `,
+      note: "Coffee, long conversations, and no rush. ☕💗"
+    },
+
+    beach: {
+      title: "🏖️ Beach Date",
+      subtitle: "Sea breeze, sunset and a little hand-holding 🌊",
+      vibe: "🏖️ Beach",
+      fields: `
+        <div class="detail-field">
+          <label>📍 Beach location</label>
+          <input class="detail-input" data-key="location" placeholder="Beach / location">
+        </div>
+
+        <div class="detail-field">
+          <label>🌅 What's the vibe?</label>
+          <div class="detail-options">
+            <button type="button" class="detail-option" data-key="vibe" data-value="🌅 Sunset">🌅 Sunset</button>
+            <button type="button" class="detail-option" data-key="vibe" data-value="🌊 Beach Walk">🌊 Beach Walk</button>
+            <button type="button" class="detail-option" data-key="vibe" data-value="📸 Photos">📸 Photos</button>
+            <button type="button" class="detail-option" data-key="vibe" data-value="🧺 Chill & Talk">🧺 Chill & Talk</button>
+            <button type="button" class="detail-option" data-key="vibe" data-value="🌙 Night Beach">🌙 Night Beach</button>
+            <button type="button" class="detail-option" data-key="vibe" data-value="✨ Surprise">✨ Surprise</button>
+          </div>
+        </div>
+      `,
+      note: "Sea breeze + sunset + you. Sounds perfect. 🌊💗"
+    },
+
+    ride: {
+      title: "🚗 Ride Date",
+      subtitle: "Pick the destination and how we're getting there 🛣️",
+      vibe: "🚗 Ride",
+      fields: `
+        <div class="detail-field">
+          <label>📍 Destination</label>
+          <input class="detail-input" data-key="destination" placeholder="Where should we go?">
+        </div>
+
+        <div class="detail-field">
+          <label>🏍️ How are we going?</label>
+          <div class="detail-options">
+            <button type="button" class="detail-option" data-key="vehicle" data-value="🏍️ Bike">🏍️ Bike</button>
+            <button type="button" class="detail-option" data-key="vehicle" data-value="🚗 Car">🚗 Car</button>
+          </div>
+        </div>
+
+        <div class="detail-field">
+          <label>🎵 What's the vibe?</label>
+          <div class="detail-options">
+            <button type="button" class="detail-option" data-key="rideVibe" data-value="🎵 Music & Drive">🎵 Music & Drive</button>
+            <button type="button" class="detail-option" data-key="rideVibe" data-value="🌅 Sunset Ride">🌅 Sunset Ride</button>
+            <button type="button" class="detail-option" data-key="rideVibe" data-value="🌃 Night Ride">🌃 Night Ride</button>
+            <button type="button" class="detail-option" data-key="rideVibe" data-value="🌿 Scenic Route">🌿 Scenic Route</button>
+          </div>
+        </div>
+      `,
+      note: "Music on, windows down, just you and me. 🚗🎶"
+    },
+
+    chill: {
+      title: "🌿 Chilling Date",
+      subtitle: "No rush — just finding a peaceful place together 💗",
+      vibe: "🌿 Chilling Place",
+      fields: `
+        <div class="detail-field">
+          <label>📍 Place</label>
+          <input class="detail-input" data-key="place" placeholder="Where should we chill?">
+        </div>
+
+        <div class="detail-field">
+          <label>🎶 What should we do?</label>
+          <div class="detail-options">
+            <button type="button" class="detail-option" data-key="activity" data-value="🗣️ Talk">🗣️ Talk</button>
+            <button type="button" class="detail-option" data-key="activity" data-value="🎮 Games">🎮 Games</button>
+            <button type="button" class="detail-option" data-key="activity" data-value="🎵 Music">🎵 Music</button>
+            <button type="button" class="detail-option" data-key="activity" data-value="📸 Photos">📸 Photos</button>
+            <button type="button" class="detail-option" data-key="activity" data-value="🍦 Ice Cream">🍦 Ice Cream</button>
+            <button type="button" class="detail-option" data-key="activity" data-value="🌳 Just Relax">🌳 Just Relax</button>
+          </div>
+        </div>
+      `,
+      note: "No plans, no rush — just enjoying us. 🌿💗"
+    }
+  };
+
+  function selectCategory(element, category) {
+    document.querySelectorAll("#dateCategories .vibe")
+      .forEach(v => v.classList.remove("selected"));
+
     element.classList.add("selected");
-    selectedVibe = vibe;
+
+    selectedCategory = category;
+    selectedVibe = categoryConfig[category].vibe;
+    categoryDetails = {};
+
+    const config = categoryConfig[category];
+    const details = document.getElementById("categoryDetails");
+
+    details.innerHTML = `
+      <h3>${config.title}</h3>
+      <p class="detail-subtitle">${config.subtitle}</p>
+      ${config.fields}
+      <button type="button" class="category-back" onclick="closeCategoryDetails()">
+        ← choose a different date idea
+      </button>
+    `;
+
+    details.classList.remove("hidden");
+    document.getElementById("choiceNote").textContent = config.note;
     document.getElementById("error2").textContent = "";
 
-    const notes = {
-      "🍕 Pizza": "Cozy, cheesy and dangerously easy to share. 🍕",
-      "🍣 Sushi": "Fancy choice. I approve. 😌🍣",
-      "🍔 Burgers": "Messy food, cute date. Perfect. 🍔",
-      "🍝 Pasta": "A little Italian-romance energy. 🍝✨",
-      "🌮 Tacos": "Fun choice. Extra points for spicy. 🌮🔥",
-      "🍜 Ramen": "Warm bowls and warmer company. 🍜💗"
-    };
-    choiceNote.textContent = notes[vibe] || "Excellent choice. 💕";
+    // Text inputs
+    details.querySelectorAll(".detail-input").forEach(input => {
+      input.addEventListener("input", () => {
+        categoryDetails[input.dataset.key] = input.value.trim();
+        document.getElementById("error2").textContent = "";
+      });
+    });
+
+    // Option buttons
+    details.querySelectorAll(".detail-option").forEach(button => {
+      button.addEventListener("click", () => {
+        const key = button.dataset.key;
+
+        details.querySelectorAll(`.detail-option[data-key="${key}"]`)
+          .forEach(b => b.classList.remove("selected"));
+
+        button.classList.add("selected");
+        categoryDetails[key] = button.dataset.value;
+        document.getElementById("error2").textContent = "";
+      });
+    });
+
+    setTimeout(() => {
+      details.scrollIntoView({ behavior:"smooth", block:"nearest" });
+    }, 80);
 
     popConfetti(8);
   }
 
+  function closeCategoryDetails() {
+    selectedCategory = "";
+    selectedVibe = "";
+    categoryDetails = {};
+
+    document.querySelectorAll("#dateCategories .vibe")
+      .forEach(v => v.classList.remove("selected"));
+
+    const details = document.getElementById("categoryDetails");
+    details.innerHTML = "";
+    details.classList.add("hidden");
+
+    document.getElementById("choiceNote").textContent =
+      "Pick our little adventure ✨";
+    document.getElementById("error2").textContent = "";
+  }
+
   function showFinal() {
-    if (!selectedVibe) {
-      document.getElementById("error2").textContent =
-        "You have to choose the food… I need to know what we're eating 😭🍴";
+    const error = document.getElementById("error2");
+
+    if (!selectedCategory) {
+      error.textContent = "Choose a date plan first, cutie 😭💕";
       return;
     }
+
+    const config = categoryConfig[selectedCategory];
+
+    // Validate required fields based on category.
+    const requiredByCategory = {
+      movies: [["movie","Movie name"],["theatre","Theatre"]],
+      restaurant: [["restaurant","Restaurant"],["cuisine","Cuisine"]],
+      coffee: [["coffeeShop","Coffee shop"],["order","What to have"]],
+      beach: [["location","Beach location"],["vibe","Beach vibe"]],
+      ride: [["destination","Destination"],["vehicle","Bike or Car"],["rideVibe","Ride vibe"]],
+      chill: [["place","Chilling place"],["activity","Activity"]]
+    };
+
+    const missing = (requiredByCategory[selectedCategory] || [])
+      .filter(([key]) => !categoryDetails[key])
+      .map(([,label]) => label);
+
+    if (missing.length) {
+      error.textContent = `Please choose: ${missing.join(", ")} 💕`;
+      return;
+    }
+
+    error.textContent = "";
 
     const prettyDate = new Date(dateInput.value + "T00:00:00")
       .toLocaleDateString("en-IN", {
@@ -1362,13 +1785,27 @@
     const suffix = hour >= 12 ? "PM" : "AM";
     const displayHour = hour > 12 ? hour - 12 : hour;
 
+    const detailsHtml = Object.entries(categoryDetails)
+      .map(([key, value]) => `<div>${escapeHtml(value)}</div>`)
+      .join("");
+
     document.getElementById("summary").innerHTML = `
       📅 <strong>${prettyDate}</strong><br>
       ⏰ <strong>${displayHour}:${String(minute).padStart(2,"0")} ${suffix}</strong><br>
-      🍽️ <strong>${selectedVibe}</strong>
+      💕 <strong>${escapeHtml(config.vibe)}</strong>
+      <div class="summary-details">${detailsHtml}</div>
     `;
 
     switchStep("step2", "step3");
+  }
+
+  function escapeHtml(value) {
+    return String(value ?? "")
+      .replace(/&/g,"&amp;")
+      .replace(/</g,"&lt;")
+      .replace(/>/g,"&gt;")
+      .replace(/"/g,"&quot;")
+      .replace(/'/g,"&#039;");
   }
 
   function backToDate() {
@@ -1402,7 +1839,7 @@
       date: prettyDate,
       time: timeSelect.options[timeSelect.selectedIndex].text,
       food: selectedVibe,
-      message: "💗 They said YES to the date! 🥹💕"
+      message: "💗 She said YES to the date! 🥹💕\n\nDate plan: " + selectedVibe + "\nDetails: " + Object.values(categoryDetails).join(" • ")
     };
 
     try {
@@ -1457,9 +1894,18 @@
 
   function restart() {
     selectedVibe = "";
+    selectedCategory = "";
+    categoryDetails = {};
     dateInput.value = "";
     timeSelect.value = "";
     document.querySelectorAll(".vibe").forEach(v => v.classList.remove("selected"));
+
+    const details = document.getElementById("categoryDetails");
+    if (details) {
+      details.innerHTML = "";
+      details.classList.add("hidden");
+    }
+
     switchStep("step3", "step1");
   }
 
