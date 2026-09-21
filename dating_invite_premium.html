@@ -14,18 +14,18 @@
     min-height: 100vh;
     transition: background 0.7s ease, color 0.5s ease;
     font-family: "Poppins", system-ui, sans-serif;
-    --bg1: #f8ecdf;
-    --bg2: #f4e1e6;
-    --accent: #8f1d4b;
-    --accent2: #c9974f;
-    --card: rgba(255,251,246,.90);
-    --border: #e6cdb0;
-    --text: #4a2f3a;
-    --gold-line: rgba(201,151,79,.55);
+    --bg1: #fff0f3;
+    --bg2: #ffe3ea;
+    --accent: #c81f4f;
+    --accent2: #ff7fa3;
+    --card: rgba(255,251,252,.90);
+    --border: #ffd1dc;
+    --text: #5c1f30;
+    --gold-line: rgba(200,31,79,.4);
     background:
       radial-gradient(circle at 15% 15%, var(--bg1) 0 14%, transparent 38%),
       radial-gradient(circle at 85% 80%, var(--bg2) 0 14%, transparent 40%),
-      linear-gradient(135deg, #fdf8f2, #f9ede9);
+      linear-gradient(135deg, #fdf8f6, #fceaef);
     color: var(--text);
     overflow-x: hidden;
   }
@@ -371,7 +371,7 @@
     width:9px;
     height:9px;
     border-radius:50%;
-    background:#e5d3c4;
+    background:#f5d7de;
     transition:all .35s ease;
   }
   .progress-dot.active {
@@ -519,7 +519,7 @@
     height:58px;
     margin:0 auto 15px;
     border-radius:10px;
-    background:linear-gradient(135deg,#fffbf5,#f7e9dc);
+    background:linear-gradient(135deg,#fffbfa,#fbe3e8);
     border:1px solid var(--gold-line);
     position:relative;
     box-shadow:0 10px 24px color-mix(in srgb, var(--accent) 20%, transparent);
@@ -529,7 +529,7 @@
     position:absolute;
     inset:0;
     clip-path:polygon(0 0,50% 52%,100% 0,100% 100%,0 100%);
-    background:#fdf5ec;
+    background:#fdf0f2;
   }
   .mini-envelope::after {
     content:"💌";
@@ -578,57 +578,57 @@
     .time-chips { grid-template-columns:repeat(2,1fr); }
   }
 
-  /* A single premium palette family — wine, champagne gold & ivory —
-     with a subtly shifting mood from page to page instead of jumping
-     between unrelated hues. */
+  /* Each page gets its own distinct romantic palette instead of one
+     hue repeated everywhere — rose red, lavender dusk, sunset coral,
+     and berry magenta. */
   body.theme-question {
-    --bg1: #f8ecdf;
-    --bg2: #f4e1e6;
-    --accent: #8f1d4b;
-    --accent2: #c9974f;
-    --card: rgba(255,251,246,.90);
-    --border: #e6cdb0;
-    --text: #4a2f3a;
-    --gold-line: rgba(201,151,79,.55);
+    --bg1: #fff0f3;
+    --bg2: #ffe3ea;
+    --accent: #c81f4f;
+    --accent2: #ff7fa3;
+    --card: rgba(255,251,252,.90);
+    --border: #ffd1dc;
+    --text: #5c1f30;
+    --gold-line: rgba(200,31,79,.4);
   }
 
   body.theme-date {
-    --bg1: #f3e6da;
-    --bg2: #efe0e8;
-    --accent: #6f2142;
-    --accent2: #c9974f;
-    --card: rgba(253,249,246,.92);
-    --border: #ddc6c9;
-    --text: #432635;
-    --gold-line: rgba(201,151,79,.5);
+    --bg1: #f3ecff;
+    --bg2: #ece0ff;
+    --accent: #6b3fa0;
+    --accent2: #b98ee3;
+    --card: rgba(252,250,255,.92);
+    --border: #ddc7f2;
+    --text: #3c2359;
+    --gold-line: rgba(107,63,160,.4);
   }
 
   body.theme-vibe {
-    --bg1: #f9e9da;
-    --bg2: #f6dfe2;
-    --accent: #a13a55;
-    --accent2: #caa05a;
-    --card: rgba(255,250,244,.92);
-    --border: #e8cdb8;
-    --text: #55303c;
-    --gold-line: rgba(202,160,90,.55);
+    --bg1: #fff2e6;
+    --bg2: #ffe4e0;
+    --accent: #d9722f;
+    --accent2: #ffab76;
+    --card: rgba(255,251,247,.92);
+    --border: #ffd3ba;
+    --text: #5c3218;
+    --gold-line: rgba(217,114,47,.4);
   }
 
   body.theme-final {
-    --bg1: #f1e4dd;
-    --bg2: #f6dfe8;
-    --accent: #7a1f52;
-    --accent2: #cf9d5c;
-    --card: rgba(253,247,250,.92);
-    --border: #e3c9d6;
-    --text: #4c2942;
-    --gold-line: rgba(207,157,92,.55);
+    --bg1: #fbe6f0;
+    --bg2: #f3daf2;
+    --accent: #9c1a63;
+    --accent2: #e2569b;
+    --card: rgba(253,247,251,.92);
+    --border: #f2c3de;
+    --text: #521a41;
+    --gold-line: rgba(156,26,99,.4);
   }
 
-  .theme-question .card { box-shadow: 0 30px 80px rgba(143,29,75,.20); }
-  .theme-date .card { box-shadow: 0 30px 80px rgba(111,33,66,.18); }
-  .theme-vibe .card { box-shadow: 0 30px 80px rgba(161,58,85,.18); }
-  .theme-final .card { box-shadow: 0 30px 80px rgba(122,31,82,.22); }
+  .theme-question .card { box-shadow: 0 30px 80px rgba(200,31,79,.20); }
+  .theme-date .card { box-shadow: 0 30px 80px rgba(107,63,160,.18); }
+  .theme-vibe .card { box-shadow: 0 30px 80px rgba(217,114,47,.18); }
+  .theme-final .card { box-shadow: 0 30px 80px rgba(156,26,99,.22); }
 
   .hearts span {
     position: fixed;
@@ -832,7 +832,7 @@
     display:grid;
     place-items:center;
     font-size:62px;
-    background:linear-gradient(145deg,#f7ecda,#ecd6bd);
+    background:linear-gradient(145deg,#fdeef0,#f6d7dd);
     box-shadow:inset 0 0 0 1px rgba(255,255,255,.85),
                0 12px 28px color-mix(in srgb, var(--accent2) 40%, transparent);
     overflow:hidden;
@@ -861,8 +861,8 @@
 
   .no-btn {
     /* Same dimensions as YES; JavaScript also syncs its exact size. */
-    background:linear-gradient(100deg,#a9647e,#7c3654);
-    box-shadow:0 12px 28px rgba(124,54,84,.25);
+    background:linear-gradient(100deg,#8f6a8f,#5f3f66);
+    box-shadow:0 12px 28px rgba(95,63,102,.25);
     user-select:none;
     -webkit-user-select:none;
     touch-action:none;
