@@ -1,0 +1,1564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Tiny Date Invite 💗</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,600&family=Poppins:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,500;1,500&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    min-height: 100vh;
+    transition: background 0.7s ease, color 0.5s ease;
+    font-family: "Poppins", system-ui, sans-serif;
+    --bg1: #f8ecdf;
+    --bg2: #f4e1e6;
+    --accent: #8f1d4b;
+    --accent2: #c9974f;
+    --card: rgba(255,251,246,.90);
+    --border: #e6cdb0;
+    --text: #4a2f3a;
+    --gold-line: rgba(201,151,79,.55);
+    background:
+      radial-gradient(circle at 15% 15%, var(--bg1) 0 14%, transparent 38%),
+      radial-gradient(circle at 85% 80%, var(--bg2) 0 14%, transparent 40%),
+      linear-gradient(135deg, #fdf8f2, #f9ede9);
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+
+
+
+  /* ---------- PREMIUM RESPONSIVE SYSTEM ---------- */
+  body {
+    position:relative;
+    isolation:isolate;
+    overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+  }
+
+  body::before,
+  body::after {
+    content:"";
+    position:fixed;
+    z-index:-2;
+    width:min(42vw,560px);
+    height:min(42vw,560px);
+    border-radius:50%;
+    pointer-events:none;
+    filter:blur(55px);
+    opacity:.34;
+    transition:background .8s ease, transform 1s ease;
+  }
+
+  body::before {
+    left:-15vw;
+    top:-12vw;
+    background:color-mix(in srgb, var(--accent) 38%, transparent);
+  }
+
+  body::after {
+    right:-15vw;
+    bottom:-12vw;
+    background:color-mix(in srgb, var(--accent2) 32%, transparent);
+  }
+
+  .wrap {
+    width:100%;
+    min-height:100vh;
+    min-height:100svh;
+    display:grid;
+    place-items:center;
+    padding:clamp(18px,4vw,54px);
+    position:relative;
+  }
+
+  .experience-shell {
+    width:min(100%, 1180px);
+    display:grid;
+    grid-template-columns:minmax(0, .72fr) minmax(420px, 1fr);
+    align-items:center;
+    gap:clamp(28px,6vw,82px);
+  }
+
+  .story-panel {
+    display:block;
+    max-width:420px;
+    padding:20px 0;
+  }
+
+  .brand-mark {
+    display:inline-flex;
+    align-items:center;
+    gap:9px;
+    padding:8px 16px;
+    border:1px solid color-mix(in srgb, var(--accent2) 45%, white);
+    border-radius:999px;
+    background:rgba(255,255,255,.5);
+    backdrop-filter:blur(10px);
+    color:var(--accent);
+    font-size:11px;
+    font-weight:600;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+    font-family:"Poppins", sans-serif;
+  }
+
+  .story-title {
+    font-family:"Playfair Display", Georgia, serif;
+    font-weight:600;
+    font-size:clamp(40px,5vw,72px);
+    line-height:1.04;
+    letter-spacing:-.02em;
+    color:var(--text);
+    margin:24px 0 18px;
+  }
+
+  .story-title span {
+    color:var(--accent);
+    font-style:italic;
+    font-weight:600;
+  }
+
+  .story-copy {
+    max-width:380px;
+    font-size:clamp(14px,1.5vw,17px);
+    line-height:1.75;
+    color:#7a5f66;
+    margin:0;
+    font-weight:300;
+  }
+
+  .story-hearts {
+    display:flex;
+    gap:7px;
+    margin-top:26px;
+    font-size:17px;
+    color:var(--accent2);
+    letter-spacing:2px;
+  }
+
+  .experience-main {
+    min-width:0;
+  }
+
+  .page-progress {
+    justify-content:flex-start;
+    margin-bottom:15px;
+    padding-left:4px;
+  }
+
+  .card {
+    width:100%;
+    max-width:620px;
+    margin:0 auto;
+    padding:clamp(25px,4vw,42px);
+    border:1px solid var(--gold-line);
+    background:linear-gradient(145deg,rgba(255,255,255,.92),rgba(255,255,255,.72));
+    box-shadow:
+      0 30px 80px color-mix(in srgb, var(--accent) 22%, transparent),
+      inset 0 1px 0 rgba(255,255,255,.9),
+      inset 0 0 0 1px rgba(255,255,255,.4);
+    backdrop-filter:blur(24px);
+    -webkit-backdrop-filter:blur(24px);
+  }
+
+  .card h1 {
+    font-family:"Playfair Display", Georgia, serif;
+    font-weight:600;
+    letter-spacing:-.015em;
+  }
+
+  .field {
+    margin:22px 0;
+  }
+
+  input, select {
+    min-height:52px;
+    font-size:16px;
+    font-family:inherit;
+    box-shadow:0 6px 18px rgba(80,50,70,.045);
+  }
+
+  .btn {
+    min-height:52px;
+    font-family:"Poppins", inherit;
+    letter-spacing:.03em;
+    font-weight:600;
+  }
+
+  .vibes {
+    grid-template-columns:repeat(3,minmax(0,1fr));
+  }
+
+  .vibe {
+    min-height:112px;
+  }
+
+  .footer-note {
+    text-align:center;
+    margin:16px 0 0;
+    font-size:11px;
+    letter-spacing:.04em;
+    color:#a68a79;
+    font-family:"Poppins",sans-serif;
+  }
+
+  @media (min-width: 1400px) {
+    .experience-shell {
+      grid-template-columns:minmax(300px,.7fr) minmax(520px,620px);
+    }
+  }
+
+  @media (max-width: 900px) {
+    .experience-shell {
+      grid-template-columns:1fr;
+      max-width:680px;
+      gap:12px;
+    }
+
+    .story-panel {
+      max-width:none;
+      text-align:center;
+      padding:0;
+    }
+
+    .story-title {
+      font-size:clamp(38px,8vw,58px);
+      margin:15px auto 10px;
+    }
+
+    .story-copy {
+      margin:auto;
+      max-width:560px;
+    }
+
+    .story-hearts {
+      justify-content:center;
+      margin-top:12px;
+    }
+
+    .experience-main {
+      width:100%;
+    }
+
+    .page-progress {
+      justify-content:center;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .wrap {
+      display:block;
+      padding:18px 13px 26px;
+    }
+
+    .experience-shell {
+      width:100%;
+    }
+
+    .story-panel {
+      padding:3px 8px 8px;
+    }
+
+    .brand-mark {
+      font-size:10px;
+      padding:7px 11px;
+    }
+
+    .story-title {
+      font-size:clamp(34px,11vw,48px);
+    }
+
+    .story-copy {
+      font-size:13px;
+      line-height:1.55;
+    }
+
+    .story-hearts {
+      font-size:15px;
+      margin-top:10px;
+    }
+
+    .page-progress {
+      margin-bottom:12px;
+    }
+
+    .card {
+      padding:24px 17px 22px;
+      border-radius:26px;
+    }
+
+    .card h1 {
+      font-size:clamp(28px,8vw,38px);
+    }
+
+    .subtitle {
+      font-size:14px;
+      line-height:1.5;
+    }
+
+    .vibes {
+      gap:9px;
+    }
+
+    .vibe {
+      min-height:102px;
+      padding:13px 6px;
+    }
+
+    .emoji {
+      font-size:27px;
+    }
+
+    .time-chips {
+      grid-template-columns:repeat(2,minmax(0,1fr));
+    }
+
+    .question-buttons {
+      width:100%;
+    }
+  }
+
+  @media (max-width: 360px) {
+    .wrap {
+      padding-left:9px;
+      padding-right:9px;
+    }
+
+    .card {
+      padding:21px 13px;
+    }
+
+    .vibes {
+      grid-template-columns:repeat(2,minmax(0,1fr));
+    }
+
+    .question-buttons .btn {
+      min-width:94px;
+      padding-left:15px;
+      padding-right:15px;
+    }
+  }
+
+  @media (pointer: coarse) {
+    input, select, button {
+      -webkit-tap-highlight-color:transparent;
+    }
+
+    .vibe:hover,
+    .quick-day:hover,
+    .time-chip:hover,
+    .btn:hover {
+      transform:none;
+    }
+  }
+
+  /* ---------- Enhanced interactive romantic UI ---------- */
+  .page-progress {
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    margin:0 auto 22px;
+  }
+  .progress-dot {
+    width:9px;
+    height:9px;
+    border-radius:50%;
+    background:#e5d3c4;
+    transition:all .35s ease;
+  }
+  .progress-dot.active {
+    width:28px;
+    border-radius:99px;
+    background:linear-gradient(90deg,var(--accent),var(--accent2));
+    box-shadow:0 3px 10px color-mix(in srgb, var(--accent) 40%, transparent);
+  }
+
+  .card {
+    position:relative;
+    overflow:hidden;
+    transition:transform .25s ease, box-shadow .35s ease;
+  }
+
+  .card::before {
+    content:"";
+    position:absolute;
+    width:180px;
+    height:180px;
+    right:-95px;
+    top:-95px;
+    border-radius:50%;
+    background:color-mix(in srgb, var(--accent) 10%, transparent);
+    pointer-events:none;
+  }
+
+  .card::after {
+    content:"";
+    position:absolute;
+    width:120px;
+    height:120px;
+    left:-75px;
+    bottom:-75px;
+    border-radius:50%;
+    background:color-mix(in srgb, var(--accent2) 9%, transparent);
+    pointer-events:none;
+  }
+
+  .microcopy {
+    font-size:12px;
+    letter-spacing:.5px;
+    color:var(--accent2);
+    margin:8px 0 0;
+  }
+
+  .date-helper {
+    display:flex;
+    justify-content:space-between;
+    gap:8px;
+    margin-top:7px;
+    font-size:12px;
+    color:#8b7182;
+  }
+
+  .quick-days {
+    display:flex;
+    gap:8px;
+    overflow-x:auto;
+    padding:2px 2px 7px;
+    scrollbar-width:none;
+  }
+  .quick-days::-webkit-scrollbar { display:none; }
+
+  .quick-day {
+    flex:0 0 auto;
+    border:1px solid var(--border);
+    background:rgba(255,255,255,.62);
+    border-radius:13px;
+    padding:8px 11px;
+    color:var(--text);
+    cursor:pointer;
+    font-size:12px;
+    transition:.2s ease;
+  }
+  .quick-day:hover,
+  .quick-day.selected {
+    transform:translateY(-2px);
+    border-color:var(--accent);
+    background:color-mix(in srgb, var(--accent) 9%, white);
+  }
+
+  .time-chips {
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:8px;
+    margin-top:9px;
+  }
+  .time-chip {
+    border:1px solid var(--border);
+    background:rgba(255,255,255,.65);
+    color:var(--text);
+    border-radius:12px;
+    padding:10px 5px;
+    cursor:pointer;
+    font-size:12px;
+    transition:.2s ease;
+  }
+  .time-chip:hover,
+  .time-chip.selected {
+    transform:translateY(-2px);
+    border-color:var(--accent);
+    background:color-mix(in srgb, var(--accent) 10%, white);
+  }
+
+  .vibe {
+    position:relative;
+    overflow:hidden;
+  }
+  .vibe::after {
+    content:"";
+    position:absolute;
+    width:35px;
+    height:35px;
+    border-radius:50%;
+    background:color-mix(in srgb, var(--accent) 10%, transparent);
+    right:-12px;
+    top:-12px;
+    transition:.25s;
+  }
+  .vibe.selected::after {
+    transform:scale(3.2);
+  }
+
+  .choice-note {
+    min-height:20px;
+    margin:8px 0 0;
+    color:var(--accent);
+    font-size:13px;
+    font-weight:700;
+  }
+
+  .final-card-icon {
+    font-size:60px;
+    line-height:1;
+    animation:softPulse 1.8s ease-in-out infinite;
+  }
+
+  @keyframes softPulse {
+    50% { transform:scale(1.08) rotate(-2deg); }
+  }
+
+  .mini-envelope {
+    width:78px;
+    height:58px;
+    margin:0 auto 15px;
+    border-radius:10px;
+    background:linear-gradient(135deg,#fffbf5,#f7e9dc);
+    border:1px solid var(--gold-line);
+    position:relative;
+    box-shadow:0 10px 24px color-mix(in srgb, var(--accent) 20%, transparent);
+  }
+  .mini-envelope::before {
+    content:"";
+    position:absolute;
+    inset:0;
+    clip-path:polygon(0 0,50% 52%,100% 0,100% 100%,0 100%);
+    background:#fdf5ec;
+  }
+  .mini-envelope::after {
+    content:"💌";
+    position:absolute;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-42%);
+    font-size:25px;
+  }
+
+  .success-pill {
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    padding:7px 12px;
+    border-radius:999px;
+    background:#ffffffaa;
+    border:1px solid var(--border);
+    color:var(--accent);
+    font-size:12px;
+    font-weight:800;
+    margin-bottom:14px;
+  }
+
+  .heart-burst {
+    position:fixed;
+    z-index:20000;
+    pointer-events:none;
+    font-size:20px;
+    animation:heartFly 1.25s ease-out forwards;
+  }
+  @keyframes heartFly {
+    from { opacity:1; transform:translate(0,0) scale(1) rotate(0); }
+    to { opacity:0; transform:translate(var(--dx),var(--dy)) scale(.55) rotate(25deg); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration:.001ms !important;
+      transition-duration:.001ms !important;
+      scroll-behavior:auto !important;
+    }
+  }
+
+  @media(max-width:390px) {
+    .time-chips { grid-template-columns:repeat(2,1fr); }
+  }
+
+  /* A single premium palette family — wine, champagne gold & ivory —
+     with a subtly shifting mood from page to page instead of jumping
+     between unrelated hues. */
+  body.theme-question {
+    --bg1: #f8ecdf;
+    --bg2: #f4e1e6;
+    --accent: #8f1d4b;
+    --accent2: #c9974f;
+    --card: rgba(255,251,246,.90);
+    --border: #e6cdb0;
+    --text: #4a2f3a;
+    --gold-line: rgba(201,151,79,.55);
+  }
+
+  body.theme-date {
+    --bg1: #f3e6da;
+    --bg2: #efe0e8;
+    --accent: #6f2142;
+    --accent2: #c9974f;
+    --card: rgba(253,249,246,.92);
+    --border: #ddc6c9;
+    --text: #432635;
+    --gold-line: rgba(201,151,79,.5);
+  }
+
+  body.theme-vibe {
+    --bg1: #f9e9da;
+    --bg2: #f6dfe2;
+    --accent: #a13a55;
+    --accent2: #caa05a;
+    --card: rgba(255,250,244,.92);
+    --border: #e8cdb8;
+    --text: #55303c;
+    --gold-line: rgba(202,160,90,.55);
+  }
+
+  body.theme-final {
+    --bg1: #f1e4dd;
+    --bg2: #f6dfe8;
+    --accent: #7a1f52;
+    --accent2: #cf9d5c;
+    --card: rgba(253,247,250,.92);
+    --border: #e3c9d6;
+    --text: #4c2942;
+    --gold-line: rgba(207,157,92,.55);
+  }
+
+  .theme-question .card { box-shadow: 0 30px 80px rgba(143,29,75,.20); }
+  .theme-date .card { box-shadow: 0 30px 80px rgba(111,33,66,.18); }
+  .theme-vibe .card { box-shadow: 0 30px 80px rgba(161,58,85,.18); }
+  .theme-final .card { box-shadow: 0 30px 80px rgba(122,31,82,.22); }
+
+  .hearts span {
+    position: fixed;
+    bottom: -40px;
+    font-size: 20px;
+    animation: float 7s linear infinite;
+    opacity: .65;
+    pointer-events: none;
+  }
+  .hearts span:nth-child(1){left:8%;animation-delay:0s}
+  .hearts span:nth-child(2){left:22%;animation-delay:2s}
+  .hearts span:nth-child(3){left:47%;animation-delay:4s}
+  .hearts span:nth-child(4){left:68%;animation-delay:1s}
+  .hearts span:nth-child(5){left:88%;animation-delay:3s}
+
+  @keyframes float {
+    to { transform: translateY(-115vh) rotate(18deg); opacity: 0; }
+  }
+
+  .wrap {
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    padding: 24px;
+  }
+
+  .card {
+    width: min(92vw, 520px);
+    background: var(--card);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border: 1px solid var(--gold-line);
+    border-radius: 30px;
+    padding: 36px 30px 32px;
+    text-align: center;
+    box-shadow:
+      0 30px 80px color-mix(in srgb, var(--accent) 22%, transparent),
+      inset 0 1px 0 rgba(255,255,255,.85),
+      inset 0 0 0 1px color-mix(in srgb, var(--accent2) 40%, transparent);
+    animation: pop .55s ease;
+    position: relative;
+  }
+
+  @keyframes pop {
+    from { opacity:0; transform: translateY(15px) scale(.97); }
+    to { opacity:1; transform: translateY(0) scale(1); }
+  }
+
+  .icon { font-size: 44px; margin-bottom: 8px; }
+  h1 {
+    margin: 0 0 10px;
+    font-family: "Playfair Display", Georgia, serif;
+    font-weight: 600;
+    font-size: clamp(30px, 7vw, 44px);
+    letter-spacing: -.01em;
+    color: var(--accent);
+  }
+  h1::after {
+    content:"";
+    display:block;
+    width:44px;
+    height:2px;
+    margin:14px auto 0;
+    background:linear-gradient(90deg, transparent, var(--accent2), transparent);
+    border-radius:2px;
+  }
+  .subtitle {
+    color:#8a5f68;
+    margin:0 0 28px;
+    font-family:"Cormorant Garamond", "Playfair Display", Georgia, serif;
+    font-style:italic;
+    font-size:17px;
+    font-weight:500;
+  }
+
+  .field {
+    text-align: left;
+    margin: 18px 0;
+  }
+  label {
+    display:block;
+    font-weight:600;
+    font-family:"Poppins",sans-serif;
+    letter-spacing:.01em;
+    margin: 0 0 8px 4px;
+    color:var(--text);
+  }
+  input, select {
+    width:100%;
+    padding:15px 16px;
+    border:1.5px solid var(--border);
+    border-radius:15px;
+    background:#fffcf8;
+    color:var(--text);
+    font-size:16px;
+    outline:none;
+    transition:border-color .2s ease, box-shadow .2s ease;
+  }
+  input:focus, select:focus {
+    border-color:var(--accent);
+    box-shadow:0 0 0 4px color-mix(in srgb, var(--accent) 12%, transparent);
+  }
+
+  .btn {
+    width:100%;
+    border:0;
+    border-radius:999px;
+    padding:16px 20px;
+    background:linear-gradient(100deg,var(--accent),var(--accent2));
+    color:#fffaf3;
+    font-size:16px;
+    font-weight:700;
+    text-transform:uppercase;
+    letter-spacing:.06em;
+    cursor:pointer;
+    box-shadow:0 12px 28px color-mix(in srgb, var(--accent) 38%, transparent);
+    transition:.2s;
+  }
+  .btn:hover { transform:translateY(-2px); box-shadow:0 16px 34px color-mix(in srgb, var(--accent) 45%, transparent); }
+  .btn:active { transform:scale(.98); }
+
+  .vibes {
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:12px;
+    margin-top:15px;
+  }
+  .vibe {
+    border:1.5px solid transparent;
+    background:#fffbf6;
+    border-radius:18px;
+    padding:17px 8px;
+    cursor:pointer;
+    transition:.2s;
+    box-shadow:0 5px 16px color-mix(in srgb, var(--accent) 10%, transparent);
+  }
+  .vibe:hover { transform:translateY(-3px); border-color:var(--gold-line); }
+  .vibe.selected {
+    border-color:var(--accent);
+    background:color-mix(in srgb, var(--accent) 7%, white);
+    box-shadow:0 0 0 3px color-mix(in srgb, var(--accent) 13%, transparent);
+  }
+  .emoji { font-size:30px; display:block; margin-bottom:6px; }
+  .vibe small { font-weight:600; color:var(--text); font-family:"Poppins",sans-serif; }
+
+  .error {
+    color:var(--accent);
+    min-height:22px;
+    margin:10px 0;
+    font-size:14px;
+  }
+
+  .summary {
+    background:color-mix(in srgb, var(--accent) 7%, white);
+    border-radius:20px;
+    padding:17px;
+    margin:20px 0;
+    line-height:1.7;
+  }
+
+  .big-heart {
+    font-size:70px;
+    animation: heartbeat 1.1s infinite;
+    filter: drop-shadow(0 8px 20px color-mix(in srgb, var(--accent) 35%, transparent));
+  }
+  @keyframes heartbeat {
+    50% { transform:scale(1.14); }
+  }
+
+  .tiny { font-size:13px; color:#a3897e; margin-top:17px; }
+
+  .secondary {
+    margin-top:10px;
+    background:transparent;
+    color:var(--accent);
+    box-shadow:none;
+    border:1.5px solid var(--border);
+    text-transform:none;
+    letter-spacing:normal;
+    font-weight:600;
+  }
+
+  .hidden { display:none; }
+
+  .love-sparkles {
+    font-size:18px;
+    letter-spacing:8px;
+    margin:-8px 0 8px;
+    animation: sparkle 1.8s ease-in-out infinite;
+  }
+
+  @keyframes sparkle {
+    50% { transform:scale(1.08); opacity:.72; }
+  }
+
+  .photo-placeholder {
+    width:116px;
+    height:116px;
+    margin:0 auto 10px;
+    border-radius:22px;
+    display:grid;
+    place-items:center;
+    font-size:62px;
+    background:linear-gradient(145deg,#f7ecda,#ecd6bd);
+    box-shadow:inset 0 0 0 1px rgba(255,255,255,.85),
+               0 12px 28px color-mix(in srgb, var(--accent2) 40%, transparent);
+    overflow:hidden;
+  }
+
+  .question-buttons {
+    position:relative;
+    width:min(100%,360px);
+    height:82px;
+    margin:0 auto;
+  }
+
+  .question-buttons .btn {
+    width:120px;
+    min-width:120px;
+    height:52px;
+    padding:14px 20px;
+    box-sizing:border-box;
+    position:absolute;
+    top:10px;
+  }
+
+  .yes-btn {
+    left:28px;
+  }
+
+  .no-btn {
+    /* Same dimensions as YES; JavaScript also syncs its exact size. */
+    background:linear-gradient(100deg,#a9647e,#7c3654);
+    box-shadow:0 12px 28px rgba(124,54,84,.25);
+    user-select:none;
+    -webkit-user-select:none;
+    touch-action:none;
+    z-index:2147483647;
+    transition:left .12s ease, top .12s ease, transform .12s ease;
+  }
+
+  @media(max-width:390px) {
+    .question-buttons { width:100%; }
+    .yes-btn { left:7%; }
+  }
+
+  @media(max-width:330px) {
+    .question-buttons .btn {
+      min-width:92px;
+      padding:13px 17px;
+      font-size:15px;
+    }
+    .yes-btn { left:3%; }
+  }
+
+  @media(max-width:390px) {
+    .card { padding:28px 18px; }
+    .vibes { gap:7px; }
+  }
+
+  @media (min-width:901px) {
+    .story-panel::after {
+      content:"";
+      display:block;
+      width:1px;
+      height:150px;
+      background:linear-gradient(to bottom,transparent,var(--border),transparent);
+      position:absolute;
+      left:calc(50% - 18px);
+      top:50%;
+      transform:translateY(-50%);
+      opacity:.55;
+    }
+  }
+</style>
+</head>
+
+<body>
+<div class="hearts" aria-hidden="true">
+  <span>💗</span><span>💖</span><span>💕</span><span>✨</span><span>💘</span>
+</div>
+
+<div class="wrap">
+  <div class="experience-shell">
+
+    <aside class="story-panel">
+      <div class="brand-mark">💌 A little invitation</div>
+      <h2 class="story-title">A date,<br><span>just for us.</span></h2>
+      <p class="story-copy">
+        One tiny question, a few cute choices, and hopefully a very memorable answer. ✨
+      </p>
+      <div class="story-hearts" aria-hidden="true">♡ &nbsp; ✦ &nbsp; ♥ &nbsp; ✦ &nbsp; ♡</div>
+    </aside>
+
+    <main class="experience-main">
+      <div class="page-progress" id="pageProgress" aria-label="Invitation progress">
+    <span class="progress-dot active"></span>
+    <span class="progress-dot"></span>
+    <span class="progress-dot"></span>
+    <span class="progress-dot"></span>
+  </div>
+
+  <!-- STEP 0: THE BIG QUESTION -->
+  <section class="card" id="step0">
+    <div class="love-sparkles">💗 ✨ 💕 ✨ 💗</div>
+    <div class="photo-placeholder" aria-label="Cute photo">
+      🐶
+    </div>
+    <div class="icon" style="font-size:30px;margin-bottom:2px">🌷💌🌷</div>
+    <h1 style="font-size:clamp(28px,6.5vw,38px)">
+      🌸 Will you go on a date with me? 🌸
+    </h1>
+    <p class="subtitle">Just you, me & a little bit of magic… 🥹💕</p>
+    <p class="microcopy">A tiny question from someone who really likes you ✨</p>
+
+    <div class="question-buttons" id="questionArea">
+      <button class="btn yes-btn" onclick="sayYes()">YES 💗</button>
+      <button class="btn no-btn" id="noBtn"
+              aria-label="No button"
+              tabindex="-1">NO 🙈</button>
+    </div>
+
+    <p class="tiny">P.S. The “No” button seems a little shy… 🙈</p>
+  </section>
+
+  <!-- STEP 1 -->
+  <section class="card hidden" id="step1">
+    <div class="icon">💌🐾</div>
+    <h1>So… when are you free?</h1>
+    <p class="subtitle">I may have a tiny date idea for you… 👀💗</p>
+
+    <div class="field">
+      <label for="date">Pick a day 📅</label>
+      <input id="date" type="date">
+      <div class="date-helper">
+        <span>Choose a day that feels special ✨</span>
+        <span id="dateLabel"></span>
+      </div>
+      <div class="quick-days" id="quickDays" aria-label="Quick date choices"></div>
+    </div>
+
+    <div class="field">
+      <label for="time">What time? ⏰</label>
+      <select id="time">
+        <option value="">Select a time…</option>
+      </select>
+      <div class="time-chips" id="timeChips" aria-label="Quick time choices"></div>
+    </div>
+
+    <div class="error" id="error1"></div>
+    <button class="btn" onclick="nextToVibe()">set the date! 💕</button>
+  </section>
+
+  <!-- STEP 2 -->
+  <section class="card hidden" id="step2">
+    <div class="icon">🍽️✨</div>
+    <h1>What's the vibe?</h1>
+    <p class="subtitle">Pick what sounds delicious 😌</p>
+
+    <div class="vibes">
+      <button class="vibe" onclick="pickVibe(this,'🍕 Pizza')"><span class="emoji">🍕</span><small>Pizza</small></button>
+      <button class="vibe" onclick="pickVibe(this,'🍣 Sushi')"><span class="emoji">🍣</span><small>Sushi</small></button>
+      <button class="vibe" onclick="pickVibe(this,'🍔 Burgers')"><span class="emoji">🍔</span><small>Burgers</small></button>
+      <button class="vibe" onclick="pickVibe(this,'🍝 Pasta')"><span class="emoji">🍝</span><small>Pasta</small></button>
+      <button class="vibe" onclick="pickVibe(this,'🌮 Tacos')"><span class="emoji">🌮</span><small>Tacos</small></button>
+      <button class="vibe" onclick="pickVibe(this,'🍜 Ramen')"><span class="emoji">🍜</span><small>Ramen</small></button>
+    </div>
+
+    <div class="choice-note" id="choiceNote">Pick the one you'd secretly order twice 😌</div>
+    <div class="error" id="error2"></div>
+    <button class="btn" onclick="showFinal()" style="margin-top:20px">this sounds perfect 💕</button>
+    <button class="btn secondary" onclick="backToDate()">← change the date</button>
+  </section>
+
+  <!-- FINAL -->
+  <section class="card hidden" id="step3">
+    <div class="success-pill">✨ DATE LOCKED IN ✨</div>
+    <div class="mini-envelope"></div>
+    <div class="final-card-icon">💞</div>
+    <h1>It's a date! 🥹</h1>
+    <p class="subtitle">Okay… this is officially my favorite plan now.</p>
+
+    <div class="summary" id="summary"></div>
+
+    <p style="font-size:18px;font-weight:700">
+      I'll bring the good vibes. You bring that cute smile. 😌✨
+    </p>
+
+    <button class="btn" onclick="acceptDate()">okay, I accept 🥰</button>
+    <button class="btn secondary" onclick="restart()">let me think about it 🙈</button>
+
+    <p class="tiny">Made with questionable amounts of courage & way too many hearts. 💕</p>
+  </section>
+
+      <div class="footer-note">crafted with a little courage & a lot of love · 💗</div>
+    </main>
+  </div>
+</div>
+
+<script>
+  // ===== CUSTOMIZE THESE =====
+  const CRUSH_NAME = "my favorite person";
+  // ============================
+
+  const dateInput = document.getElementById("date");
+  const timeSelect = document.getElementById("time");
+
+  const pageProgress = document.getElementById("pageProgress");
+  const progressDots = pageProgress.querySelectorAll(".progress-dot");
+  const dateLabel = document.getElementById("dateLabel");
+  const quickDays = document.getElementById("quickDays");
+  const timeChips = document.getElementById("timeChips");
+  const choiceNote = document.getElementById("choiceNote");
+
+  function updateProgress(step) {
+    const index = {step0:0, step1:1, step2:2, step3:3}[step] ?? 0;
+    progressDots.forEach((dot, i) => {
+      dot.classList.toggle("active", i === index);
+    });
+  }
+
+  function createQuickDates() {
+    quickDays.innerHTML = "";
+    for (let i = 1; i <= 5; i++) {
+      const d = new Date();
+      d.setDate(d.getDate() + i);
+
+      const value =
+        d.getFullYear() + "-" +
+        String(d.getMonth() + 1).padStart(2, "0") + "-" +
+        String(d.getDate()).padStart(2, "0");
+
+      const button = document.createElement("button");
+      button.type = "button";
+      button.className = "quick-day";
+      button.textContent =
+        i === 1 ? "Tomorrow 💕" :
+        d.toLocaleDateString("en-IN", {weekday:"short", day:"numeric"});
+
+      button.addEventListener("click", () => {
+        dateInput.value = value;
+        updateDateLabel();
+        document.querySelectorAll(".quick-day").forEach(b => b.classList.remove("selected"));
+        button.classList.add("selected");
+      });
+
+      quickDays.appendChild(button);
+    }
+  }
+
+  function updateDateLabel() {
+    if (!dateInput.value) {
+      dateLabel.textContent = "";
+      return;
+    }
+
+    const [y,m,d] = dateInput.value.split("-").map(Number);
+    const chosen = new Date(Date.UTC(y, m - 1, d));
+
+    dateLabel.textContent = chosen.toLocaleDateString("en-IN", {
+      weekday:"short",
+      month:"short",
+      day:"numeric",
+      timeZone:"UTC"
+    });
+
+    document.querySelectorAll(".quick-day").forEach(button => {
+      button.classList.toggle("selected", false);
+    });
+  }
+
+  dateInput.addEventListener("change", updateDateLabel);
+
+  function createTimeChips() {
+    const values = ["12:00","13:30","15:00","17:30","19:00","20:00"];
+
+    values.forEach(value => {
+      const [hour, minute] = value.split(":").map(Number);
+      const option = Array.from(timeSelect.options).find(o => o.value === value);
+      if (!option) return;
+
+      const button = document.createElement("button");
+      button.type = "button";
+      button.className = "time-chip";
+      button.textContent = option.textContent;
+
+      button.addEventListener("click", () => {
+        timeSelect.value = value;
+        document.querySelectorAll(".time-chip").forEach(b => b.classList.remove("selected"));
+        button.classList.add("selected");
+      });
+
+      timeChips.appendChild(button);
+    });
+  }
+
+  timeSelect.addEventListener("change", () => {
+    document.querySelectorAll(".time-chip").forEach(button => {
+      const selectedText = timeSelect.options[timeSelect.selectedIndex]?.textContent;
+      button.classList.toggle("selected", button.textContent === selectedText);
+    });
+  });
+
+
+  // Prevent selecting dates in the past.
+  const today = new Date();
+  const localToday = new Date(today.getTime() - today.getTimezoneOffset()*60000)
+    .toISOString().split("T")[0];
+  dateInput.min = localToday;
+
+  // Create 30-minute time slots from 12 PM to 8:30 PM.
+  for (let hour = 12; hour <= 20; hour++) {
+    for (const minute of [0, 30]) {
+      if (hour === 20 && minute === 30) continue;
+
+      let h = hour;
+      const suffix = h >= 12 ? "PM" : "AM";
+      const displayHour = h > 12 ? h - 12 : h;
+      const minuteText = minute === 0 ? "00" : "30";
+
+      const option = document.createElement("option");
+      option.value = `${String(hour).padStart(2,"0")}:${minuteText}`;
+      option.textContent = `${displayHour}:${minuteText} ${suffix}`;
+      timeSelect.appendChild(option);
+    }
+  }
+
+  let selectedVibe = "";
+
+  // ===== RUNAWAY "NO" BUTTON =====
+  // ============================================================
+  // RUNAWAY NO BUTTON
+  // The button lives on the browser viewport, not inside the card.
+  // It can move anywhere on the page and always escapes the cursor.
+  // ============================================================
+  const noBtn = document.getElementById("noBtn");
+
+  // Move NO out of the container so parent overflow/transform cannot clip it.
+  document.body.appendChild(noBtn);
+  noBtn.style.position = "fixed";
+  noBtn.style.zIndex = "2147483647";
+
+  function placeNoButton(x, y) {
+    const margin = 14;
+    const w = noBtn.offsetWidth || 105;
+    const h = noBtn.offsetHeight || 48;
+    const maxX = Math.max(margin, window.innerWidth - w - margin);
+    const maxY = Math.max(margin, window.innerHeight - h - margin);
+    noBtn.style.left = `${Math.min(Math.max(x, margin), maxX)}px`;
+    noBtn.style.top = `${Math.min(Math.max(y, margin), maxY)}px`;
+    noBtn.style.transform = "none";
+  }
+
+  // Smoothly run AWAY from the cursor instead of teleporting randomly.
+  function moveNoButton(mouseX = null, mouseY = null, force = false) {
+    const margin = 14;
+    const rect = noBtn.getBoundingClientRect();
+    const w = rect.width || 105;
+    const h = rect.height || 48;
+    const maxX = Math.max(margin, window.innerWidth - w - margin);
+    const maxY = Math.max(margin, window.innerHeight - h - margin);
+
+    if (mouseX == null || mouseY == null) {
+      mouseX = rect.left - 1;
+      mouseY = rect.top - 1;
+    }
+
+    const cx = rect.left + w / 2;
+    const cy = rect.top + h / 2;
+    let dx = cx - mouseX;
+    let dy = cy - mouseY;
+    let distance = Math.hypot(dx, dy) || 1;
+
+    // Unit vector pointing directly away from the cursor.
+    dx /= distance;
+    dy /= distance;
+
+    // The closer the cursor gets, the faster NO runs.
+    const dangerRadius = 175;
+    const closeness = Math.max(0, dangerRadius - distance) / dangerRadius;
+    const step = force ? 115 : 24 + closeness * 72;
+
+    let nextX = rect.left + dx * step;
+    let nextY = rect.top + dy * step;
+
+    // If it reaches an edge, slide/bounce along the edge so it never hides.
+    if (nextX <= margin || nextX >= maxX) {
+      nextX = Math.max(margin, Math.min(maxX, nextX));
+      nextY += (mouseY < cy ? 1 : -1) * step * 0.85;
+    }
+    if (nextY <= margin || nextY >= maxY) {
+      nextY = Math.max(margin, Math.min(maxY, nextY));
+      nextX += (mouseX < cx ? 1 : -1) * step * 0.85;
+    }
+
+    placeNoButton(
+      Math.max(margin, Math.min(maxX, nextX)),
+      Math.max(margin, Math.min(maxY, nextY))
+    );
+  }
+
+  // Start beside YES, but because NO is fixed it is free to escape anywhere.
+  function resetNoButtonPosition() {
+    const yes = document.querySelector(".yes-btn");
+    const rect = yes.getBoundingClientRect();
+
+    noBtn.style.width = `${rect.width}px`;
+    noBtn.style.height = `${rect.height}px`;
+    noBtn.style.minWidth = `${rect.width}px`;
+    noBtn.style.boxSizing = "border-box";
+    noBtn.style.transition = "left 90ms linear, top 90ms linear, transform 120ms ease";
+
+    placeNoButton(rect.right + 14, rect.top);
+  }
+
+  let noButtonReadyToEscape = false;
+  setTimeout(() => { noButtonReadyToEscape = true; }, 650);
+
+  // As the cursor follows NO, it continuously moves in the opposite direction.
+  document.addEventListener("pointermove", (event) => {
+    if (event.pointerType !== "touch") {
+      window.__lastPointerX = event.clientX;
+      window.__lastPointerY = event.clientY;
+    }
+    if (!noButtonReadyToEscape || event.pointerType === "touch") return;
+    const rect = noBtn.getBoundingClientRect();
+    const cx = rect.left + rect.width / 2;
+    const cy = rect.top + rect.height / 2;
+    const distance = Math.hypot(event.clientX - cx, event.clientY - cy);
+
+    if (distance < 175) {
+      moveNoButton(event.clientX, event.clientY);
+    }
+  }, { passive: true });
+
+  // Scrolling also makes NO escape. Keep it in the viewport and move it
+  // away from the current cursor/scroll direction instead of letting it
+  // get stuck while the page is being scrolled.
+  let lastScrollY = window.scrollY;
+
+  window.addEventListener("scroll", () => {
+    if (!noButtonReadyToEscape || document.getElementById("step0").classList.contains("hidden")) return;
+
+    const rect = noBtn.getBoundingClientRect();
+    const scrollDelta = window.scrollY - lastScrollY;
+    lastScrollY = window.scrollY;
+
+    const pointerX = Number.isFinite(window.__lastPointerX) ? window.__lastPointerX : rect.left + rect.width / 2;
+    const pointerY = Number.isFinite(window.__lastPointerY) ? window.__lastPointerY : rect.top + rect.height / 2;
+
+    let dx = rect.left + rect.width / 2 - pointerX;
+    let dy = rect.top + rect.height / 2 - pointerY;
+
+    if (Math.abs(dx) < 0.2 && Math.abs(dy) < 0.2) {
+      dx = (Math.random() > 0.5 ? 1 : -1);
+      dy = scrollDelta >= 0 ? -1 : 1;
+    }
+
+    const distance = Math.hypot(dx, dy) || 1;
+    dx /= distance;
+    dy /= distance;
+
+    dy += scrollDelta > 0 ? -0.9 : scrollDelta < 0 ? 0.9 : 0;
+    const escapeDistance = Math.min(110, 38 + Math.abs(scrollDelta) * 0.8);
+
+    placeNoButton(
+      rect.left + dx * escapeDistance,
+      rect.top + dy * escapeDistance
+    );
+  }, { passive: true });
+
+  // Extra protection: it can never be pressed/clicked.
+  ["pointerdown", "mousedown", "touchstart", "click", "pointerup"].forEach(type => {
+    noBtn.addEventListener(type, (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+      moveNoButton(event.clientX ?? null, event.clientY ?? null, true);
+    }, { passive: false });
+  });
+
+  window.addEventListener("resize", () => {
+    // Keep it on-screen after resizing.
+    const rect = noBtn.getBoundingClientRect();
+    placeNoButton(rect.left, rect.top);
+  });
+
+  // Position it beside YES after layout is ready.
+  requestAnimationFrame(resetNoButtonPosition);
+
+  function sayYes() {
+    // Once YES is selected, permanently hide the runaway NO button
+    // for the remaining pages of the invitation.
+    noBtn.style.display = "none";
+    noButtonReadyToEscape = false;
+    switchStep("step0", "step1");
+  }
+
+  function nextToVibe() {
+    const error = document.getElementById("error1");
+
+    if (!dateInput.value || !timeSelect.value) {
+      error.textContent = "Pick a date and time first, cutie 😭💕";
+      return;
+    }
+
+    error.textContent = "";
+    switchStep("step1", "step2");
+  }
+
+  function pickVibe(element, vibe) {
+    document.querySelectorAll(".vibe").forEach(v => v.classList.remove("selected"));
+    element.classList.add("selected");
+    selectedVibe = vibe;
+    document.getElementById("error2").textContent = "";
+
+    const notes = {
+      "🍕 Pizza": "Cozy, cheesy and dangerously easy to share. 🍕",
+      "🍣 Sushi": "Fancy choice. I approve. 😌🍣",
+      "🍔 Burgers": "Messy food, cute date. Perfect. 🍔",
+      "🍝 Pasta": "A little Italian-romance energy. 🍝✨",
+      "🌮 Tacos": "Fun choice. Extra points for spicy. 🌮🔥",
+      "🍜 Ramen": "Warm bowls and warmer company. 🍜💗"
+    };
+    choiceNote.textContent = notes[vibe] || "Excellent choice. 💕";
+
+    popConfetti(8);
+  }
+
+  function showFinal() {
+    if (!selectedVibe) {
+      document.getElementById("error2").textContent =
+        "You have to choose the food… I need to know what we're eating 😭🍴";
+      return;
+    }
+
+    const prettyDate = new Date(dateInput.value + "T00:00:00")
+      .toLocaleDateString("en-IN", {
+        weekday:"long",
+        day:"numeric",
+        month:"long",
+        year:"numeric"
+      });
+
+    const [hour, minute] = timeSelect.value.split(":").map(Number);
+    const suffix = hour >= 12 ? "PM" : "AM";
+    const displayHour = hour > 12 ? hour - 12 : hour;
+
+    document.getElementById("summary").innerHTML = `
+      📅 <strong>${prettyDate}</strong><br>
+      ⏰ <strong>${displayHour}:${String(minute).padStart(2,"0")} ${suffix}</strong><br>
+      🍽️ <strong>${selectedVibe}</strong>
+    `;
+
+    switchStep("step2", "step3");
+  }
+
+  function backToDate() {
+    switchStep("step2", "step1");
+  }
+
+  // ==========================================================
+  // EMAIL NOTIFICATION
+  // ==========================================================
+  // A browser-only HTML file cannot securely send an email by itself.
+  // Put your deployed Google Apps Script Web App URL here.
+  const EMAIL_WEB_APP_URL = "https://script.google.com/macros/s/AKfycbyV8nFcnt8vSKjpX7Zny0HsdmaW_iNnw9FdlBppIxdcPb3usweuLWTjQwlB-d7X_z0yAw/exec";
+
+  async function sendAcceptanceEmail() {
+    if (!EMAIL_WEB_APP_URL || EMAIL_WEB_APP_URL.includes("PASTE_YOUR")) {
+      console.warn("Google Apps Script URL is not configured.");
+      return false;
+    }
+
+    const prettyDate = new Date(dateInput.value + "T00:00:00")
+      .toLocaleDateString("en-IN", {
+        weekday: "long",
+        day: "numeric",
+        month: "long",
+        year: "numeric"
+      });
+
+    const payload = {
+      to: "parthi11116@gmail.com",
+      name: CRUSH_NAME,
+      date: prettyDate,
+      time: timeSelect.options[timeSelect.selectedIndex].text,
+      food: selectedVibe,
+      message: "💗 They said YES to the date! 🥹💕"
+    };
+
+    try {
+      // no-cors is intentional: Apps Script may not expose CORS headers.
+      // The request is still delivered to the Web App.
+      await fetch(EMAIL_WEB_APP_URL, {
+        method: "POST",
+        mode: "no-cors",
+        headers: {
+          "Content-Type": "text/plain;charset=utf-8"
+        },
+        body: JSON.stringify(payload)
+      });
+
+      return true;
+    } catch (error) {
+      console.error("Email notification failed:", error);
+      return false;
+    }
+  }
+
+  async function acceptDate() {
+    // Show the success screen immediately so the date experience isn't delayed.
+    document.getElementById("step3").innerHTML = `
+      <div class="big-heart">💞</div>
+      <h1>YAY!!! 🥹💕</h1>
+      <p class="subtitle">
+        You just made someone very, very happy.
+      </p>
+      <div class="summary">
+        <strong>${selectedVibe}</strong><br>
+        is officially happening! ✨
+      </div>
+      <p style="font-size:19px;font-weight:800">
+        See you on our date, ${CRUSH_NAME}. 🫶
+      </p>
+      <p id="emailStatus" class="tiny">Sending a little love note… 💌</p>
+    `;
+
+    burstHearts();
+    popConfetti(30);
+
+    const sent = await sendAcceptanceEmail();
+    const status = document.getElementById("emailStatus");
+
+    if (status) {
+      status.innerHTML = sent
+        ? "💌 Notification sent! Someone just got very happy. 💗"
+        : "💕 Date accepted! (Email notification could not be sent.)";
+    }
+  }
+
+  function restart() {
+    selectedVibe = "";
+    dateInput.value = "";
+    timeSelect.value = "";
+    document.querySelectorAll(".vibe").forEach(v => v.classList.remove("selected"));
+    switchStep("step3", "step1");
+  }
+
+  function applyTheme(step) {
+    document.body.classList.remove(
+      "theme-question", "theme-date", "theme-vibe", "theme-final"
+    );
+
+    const themes = {
+      step0: "theme-question",
+      step1: "theme-date",
+      step2: "theme-vibe",
+      step3: "theme-final"
+    };
+
+    document.body.classList.add(themes[step] || "theme-question");
+    updateProgress(step);
+  }
+
+  function switchStep(from, to) {
+    document.getElementById(from).classList.add("hidden");
+    document.getElementById(to).classList.remove("hidden");
+    applyTheme(to);
+  }
+
+  // Gentle card tilt on desktop; disabled for touch and reduced-motion.
+  const cards = document.querySelectorAll(".card");
+  if (window.matchMedia("(hover: hover) and (pointer: fine)").matches &&
+      !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    cards.forEach(card => {
+      card.addEventListener("mousemove", (event) => {
+        const rect = card.getBoundingClientRect();
+        const x = (event.clientX - rect.left) / rect.width - 0.5;
+        const y = (event.clientY - rect.top) / rect.height - 0.5;
+        card.style.transform =
+          `perspective(900px) rotateX(${y * -2.2}deg) rotateY(${x * 2.2}deg)`;
+      });
+      card.addEventListener("mouseleave", () => {
+        card.style.transform = "";
+      });
+    });
+  }
+
+  function popConfetti(count = 14) {
+    const icons = ["💗","💕","✨","🌸","💞","🫶"];
+    for (let i = 0; i < count; i++) {
+      const item = document.createElement("span");
+      item.className = "heart-burst";
+      item.textContent = icons[Math.floor(Math.random() * icons.length)];
+      item.style.left = `${45 + Math.random() * 10}vw`;
+      item.style.top = `${42 + Math.random() * 10}vh`;
+      item.style.setProperty("--dx", `${(Math.random() - .5) * 300}px`);
+      item.style.setProperty("--dy", `${-80 - Math.random() * 260}px`);
+      document.body.appendChild(item);
+      setTimeout(() => item.remove(), 1400);
+    }
+  }
+
+  // Opening palette
+  applyTheme("step0");
+  createQuickDates();
+  createTimeChips();
+
+  function burstHearts() {
+    for (let i = 0; i < 25; i++) {
+      const heart = document.createElement("div");
+      heart.textContent = ["💗","💖","💕","💘","✨"][Math.floor(Math.random()*5)];
+      heart.style.position = "fixed";
+      heart.style.left = (Math.random()*100) + "vw";
+      heart.style.top = "50vh";
+      heart.style.fontSize = (18 + Math.random()*25) + "px";
+      heart.style.zIndex = 9999;
+      heart.style.pointerEvents = "none";
+      document.body.appendChild(heart);
+
+      const x = (Math.random()-0.5)*300;
+      const y = -(150 + Math.random()*450);
+
+      heart.animate([
+        { transform:"translate(0,0) scale(1)", opacity:1 },
+        { transform:`translate(${x}px,${y}px) scale(.5)`, opacity:0 }
+      ], { duration:1200 + Math.random()*700, easing:"ease-out" })
+      .onfinish = () => heart.remove();
+    }
+  }
+</script>
+</body>
+</html>
